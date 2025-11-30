@@ -1,9 +1,9 @@
+import { createContext, useState } from "react"
 
-import Login from "../pages/Login";
-import ProductosAPI from "./ProductosAPI";
+export const CarritoContext = createContext();
 
-const Main = () => {
-    /*
+export const CarritoProvider = ({ children }) => {
+
     const [carrito, setCarrito] = useState([])
 
     const agregarCarrito = (producto) => {
@@ -15,15 +15,11 @@ const Main = () => {
             prevProductos.filter((_, index) => index !== indexAEliminar)
         )
     }
-    */
 
     return (
-        <main style={{ padding: "20px" }}>
 
-            <ProductosAPI />
-
-        </main>
+        <CarritoContext.Provider value={{ carrito, agregarCarrito, eliminarProducto }}>
+            {children}
+        </CarritoContext.Provider>
     )
 }
-
-export default Main;

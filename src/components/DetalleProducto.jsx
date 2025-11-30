@@ -6,7 +6,7 @@ const DetalleProducto = () => {
 
     const { id } = useParams()
     const [producto, setProducto] = useState(null)
-    const url = `https://fakestoreapi.com/products/${id}`
+    const url = `https://692c893ac829d464006fd8cc.mockapi.io/productos/${id}`
 
     
 
@@ -23,9 +23,9 @@ const DetalleProducto = () => {
 
     return (
         <div>
-            <h2>DETALLE: {producto.title}</h2>
-            <img src={producto.image} alt={producto.name} width={150} />
-            <p>{producto.description}</p>
+            <h2>DETALLE: {producto.nombre}</h2>
+            <img src={producto.imagen} alt={producto.nombre} width={150} />
+            <p>{producto.descripcion}</p>
             <Link to={"/"}>INICIO</Link>
         </div>
     )
