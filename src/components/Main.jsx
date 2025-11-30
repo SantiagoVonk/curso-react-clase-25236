@@ -1,22 +1,8 @@
 
-import Login from "../pages/Login";
 import ProductosAPI from "./ProductosAPI";
 
 const Main = () => {
-    /*
-    const [carrito, setCarrito] = useState([])
-
-    const agregarCarrito = (producto) => {
-        setCarrito([...carrito, producto])
-    }
-
-    const eliminarProducto = (indexAEliminar) => {
-        setCarrito(prevProductos =>
-            prevProductos.filter((_, index) => index !== indexAEliminar)
-        )
-    }
-    */
-
+    
     return (
         <main style={{ padding: "20px" }}>
 
