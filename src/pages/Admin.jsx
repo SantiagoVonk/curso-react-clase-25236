@@ -1,20 +1,18 @@
-import FormProductos from "../components/FormProductos"
-import GestionProducto from "../components/GestionProducto"
-
+import GestionProducto from "../components/GestionProducto";
 
 const Admin = () => {
+  return (
+    <div className="container py-5">
+      <div className="text-center mb-4">
+        <h1 className="display-5 fw-bold">Gestión de Productos</h1>
+        <p className="text-muted">Administra tus productos fácilmente desde aquí</p>
+      </div>
 
-    const API = "https://692c893ac829d464006fd8cc.mockapi.io/productos"
-
-     
-
-    return (
-        <>
-        <h1>GESTION DE PRODUCTOS</h1>
+      <div className="card shadow p-4">
         <GestionProducto />
-        
-        </>
-    )
-} 
+      </div>
+    </div>
+  );
+};
 
-export default Admin
+export default Admin;

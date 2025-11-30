@@ -1,43 +1,65 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import { useAuthContext } from "../context/AuthContext"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../context/AuthContext";
 
 const Login = () => {
-    const [user, setUser] = useState("")
-    const [password, setPassword] = useState("")
+    const [user, setUser] = useState("");
+    const [password, setPassword] = useState("");
 
-    const { login } = useAuthContext()
-    const navigate = useNavigate()
+    const { login } = useAuthContext();
+    const navigate = useNavigate();
 
     const manejarSubmit = (evento) => {
+        evento.preventDefault();
 
-        evento.preventDefault()
-
-        if (user == "admin" && password == "admin") {
-            login(user)
-            navigate("/admin")
+        if (user === "admin" && password === "admin") {
+            login(user);
+            navigate("/admin");
         } else {
-            alert("Usuario o contraseña incorrectos")
+            alert("Usuario o contraseña incorrectos");
         }
-    }
+    };
 
     return (
-        <>
-            <form onSubmit={manejarSubmit}>
-                <h3>Iniciar sesion</h3>
-                <label htmlFor="">Usuario</label>
-                <input type="text" value={user} onChange={(evento) => setUser(evento.target.value)}></input>
-                <br />
-                <label htmlFor="">Contraseña</label>
-                <input type="password" value={password} onChange={(evento) => setPassword(evento.target.value)}></input>
-                <br />
-                <button type="submit">Iniciar sesion</button>
+        <div className="container d-flex justify-content-center align-items-center vh-100">
+            <div className="card shadow p-4" style={{ maxWidth: "400px", width: "100%" }}>
+                <h3 className="text-center mb-4">Iniciar sesión</h3>
 
-            </form>
+                <form onSubmit={manejarSubmit}>
 
-        </>
+                    <div className="mb-3">
+                        <label className="form-label">
+                            Usuario <span className="text-muted">(admin)</span>
+                        </label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            value={user}
+                            onChange={(e) => setUser(e.target.value)}
+                            required
+                        />
+                    </div>
 
-    )
-}
+                    <div className="mb-3">
+                        <label className="form-label">
+                            Contraseña <span className="text-muted">(admin)</span>
+                        </label>
+                        <input
+                            type="password"
+                            className="form-control"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
 
-export default Login
+                    <button type="submit" className="btn btn-primary w-100">
+                        Iniciar sesión
+                    </button>
+                </form>
+            </div>
+        </div>
+    );
+};
+
+export default Login;
